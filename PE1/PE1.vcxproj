@@ -131,12 +131,15 @@
     <ClCompile Include="LinearFunction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="QuadraticFunction.cpp" />
+    <ClCompile Include="StringFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharUtil.h" />
     <ClInclude Include="FunctionContainer.h" />
     <ClInclude Include="IntegralApproximation.h" />
     <ClInclude Include="LinearFunction.h" />
     <ClInclude Include="QuadraticFunction.h" />
+    <ClInclude Include="StringFunction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,22 +1,23 @@
 ﻿#include "IntegralApproximation.h"
 #include "LinearFunction.h"
 #include "QuadraticFunction.h"
+#include "StringFunction.h"
 #include <iostream>
+#include <string>
 #include <iomanip>
+
+using namespace std;
 
 int main()
 {
 	QuadraticFunction quad = QuadraticFunction(-1, 0, 10);
-	IntegralApproximation approx = IntegralApproximation(-4, 4, &quad);
+	StringFunction strf("x");
+	IntegralApproximation approx = IntegralApproximation(0, 5, &strf);
 
-	std::cout << std::fixed;
-	std::cout << std::setprecision(5);
+	std::cout << fixed;
+	std::cout << setprecision(5);
 
-
-	for (int i = 10; i <= 100; i += 10) {
-		float result = approx.IntegrateWithTrapesoid(i);
-		std::cout << i << ": " << result << " with difference " << 37.33333 - result << std::endl;
-	}
+	std::cout << endl << approx.IntegrateWithTrapesoid(100) << endl;
 
 	return 0;
 }
