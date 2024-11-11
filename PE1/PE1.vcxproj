@@ -127,19 +127,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinomialBinaryOperatorNode.cpp" />
+    <ClCompile Include="BinomialNode.cpp" />
+    <ClCompile Include="BinomialUnaryOperatorNode.cpp" />
+    <ClCompile Include="BinomialXNode.cpp" />
+    <ClCompile Include="BinomialZeronaryOperationNode.cpp" />
     <ClCompile Include="IntegralApproximation.cpp" />
     <ClCompile Include="LinearFunction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="QuadraticFunction.cpp" />
     <ClCompile Include="StringFunction.cpp" />
+    <ClCompile Include="StringParser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinomialBinaryOperatorNode.h" />
+    <ClInclude Include="BinomialNode.h" />
+    <ClInclude Include="BinomialUnaryOperatorNode.h" />
+    <ClInclude Include="BinomialXNode.h" />
+    <ClInclude Include="BinomialZeronaryOperationNode.h" />
     <ClInclude Include="CharUtil.h" />
     <ClInclude Include="FunctionContainer.h" />
     <ClInclude Include="IntegralApproximation.h" />
     <ClInclude Include="LinearFunction.h" />
     <ClInclude Include="QuadraticFunction.h" />
     <ClInclude Include="StringFunction.h" />
+    <ClInclude Include="StringParser.h" />
+    <ClInclude Include="Subset.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
