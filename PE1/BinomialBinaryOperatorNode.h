@@ -29,7 +29,7 @@ public:
 				_operationType = 4;
 				break;
 			default:
-				_operationType = 5;
+				_operationType = 2;
 				break;
 		}
 	}

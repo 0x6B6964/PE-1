@@ -3,9 +3,32 @@
 
 unsigned int StringParser::FindEndOfExpression(const string& str, unsigned int startingCharacter) 
 {
-	for (int i = startingCharacter; i < str.length(); i++) {
-		if (CharUtil::IsOperation(str[i]) && str[i] != '^')
-			return i - 1;
+	int brackets = 0;
+
+	for (unsigned int i = startingCharacter; i < str.length(); i++) {
+		if (str[i] == '(')
+			brackets++;
+		
+		if (str[i] == ')')
+			brackets--;
+		
+		
+		if (str[i] == ')') {
+			if (brackets == 0)
+				return i;
+
+			if (brackets < 0)
+				return i - 1;
+		}
+			
+
+		if (!(CharUtil::IsOperation(str[i]) && str[i] != '^'))
+			continue;
+
+		if (CharUtil::IsOperation(str[i - 1]) || i == startingCharacter + brackets)
+			continue;
+
+		return i - 1;
 	}
 	
 	return str.length() - 1;
@@ -36,25 +59,25 @@ int StringParser::ParseWord(const string& str, Subset set)
 {
 	string sub = str.substr(set.GetStart(), set.GetEnd() - set.GetStart());
 
-	if (str == "sqrt")
+	if (sub == "sqrt")
 		return 1;
-	if (str == "sin")
+	if (sub == "sin")
 		return 2;
-	if (str == "sec")
+	if (sub == "sec")
 		return 3;
-	if (str == "cos")
+	if (sub == "cos")
 		return 4;
-	if (str == "csc")
+	if (sub == "csc")
 		return 5;
-	if (str == "tg")
+	if (sub == "tg")
 		return 6;
-	if (str == "tan")
+	if (sub == "tan")
 		return 7;
-	if (str == "ctg")
+	if (sub == "ctg")
 		return 7;
-	if (str == "lg")
+	if (sub == "lg")
 		return 8;
-	if (str == "ln")
+	if (sub == "ln")
 		return 9;
 
 	return 0;

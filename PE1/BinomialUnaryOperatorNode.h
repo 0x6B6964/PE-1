@@ -22,7 +22,10 @@ public:
 			operandSet = { set.GetStart() + 1, set.GetEnd() };
 		} else if (str.IsWordedFunction(set.GetStart())) {
 			_operationType = str.ParseWord(set);
-			operandSet = { set.GetEnd() + 1, str.FindEndOfExpression(set.GetEnd() + 1) };
+			operandSet = { set.GetEnd(), str.FindEndOfExpression(set.GetEnd()) };
+		} else if (str.GetString()[set.GetStart()] == '(') {
+			_operationType = 0;
+			operandSet = { set.GetStart() + 1, set.GetEnd() };
 		}
 		
 		_operand = CreateNode(str, operandSet);

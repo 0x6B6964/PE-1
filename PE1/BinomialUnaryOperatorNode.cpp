@@ -26,5 +26,5 @@ float BinomialUnaryOperatorNode::Extract(const float& x)
 			return log(_operand->Extract(x));
 	}
 
-	return 0.0f;
+	return _operand->Extract(x);
 }
