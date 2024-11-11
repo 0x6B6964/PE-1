@@ -57,8 +57,8 @@ public:
 	inline int ParseWord(Subset set) { return ParseWord(_str, set); }
 
 	static int IsWordedFunction(const string& str, unsigned int startingCharacter); // returns length of the word
-	static inline bool IsWordedFunction(const string& str) { return IsWordedFunction(str, 0); }
-	inline bool IsWordedFunction(unsigned int wordStart) { return IsWordedFunction(_str, wordStart); }
+	static inline int IsWordedFunction(const string& str) { return IsWordedFunction(str, 0); }
+	inline int IsWordedFunction(unsigned int wordStart) { return IsWordedFunction(_str, wordStart); }
 
 #pragma endregion
 

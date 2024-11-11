@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
 	QuadraticFunction quad = QuadraticFunction(-1, 0, 10);
-	StringFunction strf("2+x");
+	StringFunction strf("sinx");
 	IntegralApproximation approx = IntegralApproximation(0, 5, &strf);
 
 	std::cout << fixed;

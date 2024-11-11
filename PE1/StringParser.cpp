@@ -34,6 +34,8 @@ Subset StringParser::FindFirstWordPosition(const string& str, unsigned int start
 
 int StringParser::ParseWord(const string& str, Subset set)
 {
+	string sub = str.substr(set.GetStart(), set.GetEnd() - set.GetStart());
+
 	if (str == "sqrt")
 		return 1;
 	if (str == "sin")
