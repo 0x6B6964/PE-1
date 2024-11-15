@@ -109,7 +109,7 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 	}
 
 	// Insertion of literals
-	if (CharUtil::IsDigit(str.GetString()[set.GetStart()])) { // At this point we should be left with just float values, so...
+	if (CharUtil::IsDigit(str.GetString()[set.GetStart()])) { // At this point we should be left with just numerical values, so...
 		return new BinomialZeronaryOperationNode(str, set);
 	}
 
@@ -121,7 +121,7 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 	return new BinomialZeronaryOperationNode(str, { 1, 1 });
 }
 
-float BinomialNode::Extract(const float& x)
+double BinomialNode::Extract(const double& x)
 {
 	return 1.0f;
 };

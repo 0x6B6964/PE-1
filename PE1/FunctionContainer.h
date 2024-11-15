@@ -6,6 +6,6 @@ class FunctionContainer
 public:
 	FunctionContainer() { };
 
-	virtual float ComputeWith(float x) = 0;
+	virtual double ComputeWith(double x) = 0;
 	virtual std::string ToString() = 0;
 };

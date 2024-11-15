@@ -2,8 +2,8 @@
 struct Subset
 {
 private:
-	unsigned int _start;
-	unsigned int _end;
+	size_t _start;
+	size_t _end;
 
 public:
 	Subset() {
@@ -11,7 +11,7 @@ public:
 		_end = 0;
 	}
 
-	Subset(unsigned int start, unsigned int end) {
+	Subset(size_t start, size_t end) {
 		_start = start;
 		_end = end;
 		

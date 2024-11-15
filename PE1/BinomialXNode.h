@@ -1,7 +1,7 @@
 #pragma once
 #include "BinomialNode.h"
-#define PI 3.14159265359
-#define E  2.71828182846
+#define PI 3.141592653589793
+#define E  2.718281828459045
 
 
 class BinomialXNode : public BinomialNode
@@ -30,6 +30,6 @@ public:
 		
 	}
 
-	float Extract(const float& x) override;
+	double Extract(const double& x) override;
 };
 

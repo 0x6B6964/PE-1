@@ -1,7 +1,7 @@
 #include "QuadraticFunction.h"
 #include <string>
 
-float QuadraticFunction::ComputeWith(float x) {
+double QuadraticFunction::ComputeWith(double x) {
 	return _a * x * x + _b * x + _c;
 }
 

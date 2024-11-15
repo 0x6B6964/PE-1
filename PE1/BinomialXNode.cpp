@@ -1,6 +1,6 @@
 #include "BinomialXNode.h"
 
-float BinomialXNode::Extract(const float& x)
+double BinomialXNode::Extract(const double& x)
 {
 	switch (_type) {
 		case 0:

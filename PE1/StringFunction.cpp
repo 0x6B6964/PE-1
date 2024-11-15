@@ -13,7 +13,7 @@ int StringFunction::ModifyString(string& str)
 	return 0;
 }
 
-float StringFunction::ComputeWith(float x)
+double StringFunction::ComputeWith(double x)
 {
 	return _coreNode->Extract(x);
 }

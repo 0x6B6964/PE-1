@@ -1,25 +1,25 @@
 #include "BinomialUnaryOperatorNode.h"
 #include <Math.h>
 
-float BinomialUnaryOperatorNode::Extract(const float& x)
+double BinomialUnaryOperatorNode::Extract(const double& x)
 {
 	switch (_operationType) {
 		case -1:
 			return -_operand->Extract(x);
 		case 1:
-			return sqrtf(_operand->Extract(x));
+			return sqrt(_operand->Extract(x));
 		case 2:
-			return sinf(_operand->Extract(x));
+			return sin(_operand->Extract(x));
 		case 3:
-			return 1 / sinf(_operand->Extract(x));
+			return 1 / sin(_operand->Extract(x));
 		case 4:
-			return cosf(_operand->Extract(x));
+			return cos(_operand->Extract(x));
 		case 5:
-			return 1 / cosf(_operand->Extract(x));
+			return 1 / cos(_operand->Extract(x));
 		case 6:
-			return tanf(_operand->Extract(x));
+			return tan(_operand->Extract(x));
 		case 7:
-			return 1 / tanf(_operand->Extract(x));
+			return 1 / tan(_operand->Extract(x));
 		case 8:
 			return log10(_operand->Extract(x));
 		case 9:

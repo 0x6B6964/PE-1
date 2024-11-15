@@ -5,12 +5,12 @@
 class IntegralApproximation
 {
 private:
-	float _a;
-	float _b;
+	double _a;
+	double _b;
 	FunctionContainer* _selectedFunction;
 
 public: 
-	IntegralApproximation(float a, float b, FunctionContainer* functionToCompute) {
+	IntegralApproximation(double a, double b, FunctionContainer* functionToCompute) {
 		_a = a;
 		_b = b;
 
@@ -18,13 +18,13 @@ public:
 	}
 
 	/// <returns> Returns range of integration </returns>
-	float GetRange();
+	double GetRange();
 
 	/// <summary>
 	/// Finds approximate value of integration, using trapezoid method
 	/// </summary>
 	/// <param name="n"> Number of trapesoids </param>
 	/// <returns> Approximate value of integration of selected function </returns>
-	float IntegrateWithTrapesoid(int n);
+	double IntegrateWithTrapesoid(unsigned int n);
 };
 

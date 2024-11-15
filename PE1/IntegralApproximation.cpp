@@ -1,18 +1,18 @@
 #include "IntegralApproximation.h"
 
-float IntegralApproximation::GetRange()
+double IntegralApproximation::GetRange()
 {
     return _b - _a;
 }
 
-float IntegralApproximation::IntegrateWithTrapesoid(int n)
+double IntegralApproximation::IntegrateWithTrapesoid(unsigned int n)
 {
-    float height = GetRange() / n;
-    float previousFunctionResult = _selectedFunction->ComputeWith(_a);
-    float sum = 0;
+    double height = GetRange() / n;
+    double previousFunctionResult = _selectedFunction->ComputeWith(_a);
+    double sum = 0;
 
-    for (int i = 1; i <= n; i++) {
-        float currentFunctionResult = _selectedFunction->ComputeWith(_a + height * i);
+    for (unsigned int i = 1; i <= n; i++) {
+        double currentFunctionResult = _selectedFunction->ComputeWith(_a + height * i);
         sum += (previousFunctionResult + currentFunctionResult);
         previousFunctionResult = currentFunctionResult;
     }

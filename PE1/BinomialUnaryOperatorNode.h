@@ -31,5 +31,5 @@ public:
 		_operand = CreateNode(str, operandSet);
 	}
 
-	float Extract(const float& x) override;
+	double Extract(const double& x) override;
 };

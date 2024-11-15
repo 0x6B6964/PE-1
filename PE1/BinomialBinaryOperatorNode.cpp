@@ -1,7 +1,7 @@
 #include "BinomialBinaryOperatorNode.h"
 #include <Math.h>
 
-float BinomialBinaryOperatorNode::Extract(const float& x)
+double BinomialBinaryOperatorNode::Extract(const double& x)
 {
     switch (_operationType) {
         case 0:

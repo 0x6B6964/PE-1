@@ -1,11 +1,11 @@
 #include "StringParser.h"
 #include "CharUtil.h"
 
-unsigned int StringParser::FindEndOfExpression(const string& str, unsigned int startingCharacter) 
+size_t StringParser::FindEndOfExpression(const string& str, size_t startingCharacter)
 {
 	int brackets = 0;
 
-	for (unsigned int i = startingCharacter; i < str.length(); i++) {
+	for (size_t i = startingCharacter; i < str.length(); i++) {
 		if (str[i] == '(')
 			brackets++;
 		
@@ -37,7 +37,7 @@ unsigned int StringParser::FindEndOfExpression(const string& str, unsigned int s
 	return str.length() - 1;
 }
 
-Subset StringParser::FindFirstWordPosition(const string& str, unsigned int startingCharacter)
+Subset StringParser::FindFirstWordPosition(const string& str, size_t startingCharacter)
 {
 	size_t length = str.length();
 	int startOfTheWord = startingCharacter;
@@ -86,7 +86,7 @@ int StringParser::ParseWord(const string& str, Subset set)
 	return 0;
 }
 
-int StringParser::IsWordedFunction(const string& str, unsigned int startingCharacter)
+int StringParser::IsWordedFunction(const string& str, size_t startingCharacter)
 {
 	for (unsigned int i = startingCharacter; i < str.length(); i++)
 	{
@@ -99,7 +99,7 @@ int StringParser::IsWordedFunction(const string& str, unsigned int startingChara
 	return 0;
 }
 
-Subset StringParser::FindFirstNumberPosition(const string& str, unsigned int startingCharacter)
+Subset StringParser::FindFirstNumberPosition(const string& str, size_t startingCharacter)
 {
 	size_t length = str.length();
 
@@ -123,7 +123,7 @@ Subset StringParser::FindFirstNumberPosition(const string& str, unsigned int sta
 	return Subset(startOfNumber, endOfNumber - 1);
 }
 
-float StringParser::ParseNumber(const string& str, Subset set)
+double StringParser::ParseNumber(const string& str, Subset set)
 {
 	return stof(str.substr(set.GetStart(), set.GetEnd() - set.GetStart()));
 }

@@ -4,16 +4,16 @@
 class QuadraticFunction : public FunctionContainer
 {
 private:
-	float _a;
-	float _b;
-	float _c;
+	double _a;
+	double _b;
+	double _c;
 
 public:
-	QuadraticFunction(float a, float b, float c) {
+	QuadraticFunction(double a, double b, double c) {
 		_a = a;
 		_b = b;
 		_c = c;
 	}
-	float ComputeWith(float x) override;
+	double ComputeWith(double x) override;
 	std::string ToString() override;
 };

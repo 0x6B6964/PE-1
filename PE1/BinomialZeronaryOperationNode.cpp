@@ -1,6 +1,6 @@
 #include "BinomialZeronaryOperationNode.h"
 
-float BinomialZeronaryOperationNode::Extract(const float& x)
+double BinomialZeronaryOperationNode::Extract(const double& x)
 {
     return _numeral;
 }

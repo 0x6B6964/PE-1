@@ -1,7 +1,7 @@
 #include "LinearFunction.h"
 #include <string>
 
-float LinearFunction::ComputeWith(float x) {
+double LinearFunction::ComputeWith(double x) {
 	return _k * x + _b;
 }
 
