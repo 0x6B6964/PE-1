@@ -4,6 +4,8 @@
 #include "BinomialUnaryOperatorNode.h"
 #include "BinomialBinaryOperatorNode.h"
 
+inline bool IsWordedConst(char ch);
+
 BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 {
 	int brackets = 0;
@@ -42,20 +44,6 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 		}
 	}
 
-	// ^
-	for (unsigned int i = set.GetStart(); i < set.GetEnd(); i++) {
-		if (str.GetString()[i] == '(')
-			brackets++;
-
-		if (str.GetString()[i] == ')')
-			brackets--;
-
-		if ((str.GetString()[i] == '^') && brackets == 0)
-		{
-			return new BinomialBinaryOperatorNode(str, { set.GetStart(), i }, { i + 1, set.GetEnd() });
-		}
-	}
-
 	// Worded functions
 	if (CharUtil::IsLetter(str.GetString()[set.GetStart()])) { // I only care if function is first thing in expression. Otherwise I want concat to execute
 		int l = str.IsWordedFunction(set.GetStart());
@@ -65,12 +53,15 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 	}
 
 	// Concat
-	for (unsigned int i = set.GetStart() + 1; i < set.GetEnd(); i++) {
+	for (unsigned int i = set.GetStart(); i < set.GetEnd(); i++) {
 		if (str.GetString()[i] == '(')
 			brackets++;
 
 		if (str.GetString()[i] == ')')
 			brackets--;
+
+		if (i == set.GetStart())
+			continue;
 
 		if (CharUtil::IsDigit(str.GetString()[i - 1]) && CharUtil::IsLetter(str.GetString()[i]) && brackets == 0) { // 3x
 			return new BinomialBinaryOperatorNode(str, { set.GetStart(), i }, { i, set.GetEnd() });
@@ -82,6 +73,20 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 
 		if (CharUtil::IsLetter(str.GetString()[i]) && str.GetString()[i - 1] == ')' && brackets == 0) { // (x + 2)x
 			return new BinomialBinaryOperatorNode(str, { set.GetStart(), i }, { i, set.GetEnd() });
+		}
+	}
+
+	// ^
+	for (unsigned int i = set.GetStart(); i < set.GetEnd(); i++) {
+		if (str.GetString()[i] == '(')
+			brackets++;
+
+		if (str.GetString()[i] == ')')
+			brackets--;
+
+		if ((str.GetString()[i] == '^') && brackets == 0)
+		{
+			return new BinomialBinaryOperatorNode(str, { set.GetStart(), i }, { i + 1, set.GetEnd() });
 		}
 	}
 
@@ -98,7 +103,7 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 		if (str.GetString()[i] == ')')
 			brackets--;
 
-		if ((str.GetString()[i] == 'x' || str.GetString()[i] == 'p' || str.GetString()[i] == 'e') && brackets == 0) {
+		if (IsWordedConst(str.GetString()[i]) && brackets == 0) {
 			return new BinomialXNode(str, { set.GetStart(), i + 1 });
 		}
 	}
@@ -119,5 +124,8 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 float BinomialNode::Extract(const float& x)
 {
 	return 1.0f;
+};
+
+inline bool IsWordedConst(char ch) {
+	return ch == 'x' || ch == 'p' || ch == 'e';
 }
-;

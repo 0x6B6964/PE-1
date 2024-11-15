@@ -25,7 +25,7 @@ public:
 			operandSet = { set.GetEnd(), str.FindEndOfExpression(set.GetEnd()) };
 		} else if (str.GetString()[set.GetStart()] == '(') {
 			_operationType = 0;
-			operandSet = { set.GetStart() + 1, set.GetEnd() };
+			operandSet = { set.GetStart() + 1, set.GetEnd() - 1 };
 		}
 		
 		_operand = CreateNode(str, operandSet);

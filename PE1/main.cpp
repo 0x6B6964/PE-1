@@ -11,13 +11,17 @@ using namespace std;
 int main()
 {
 	QuadraticFunction quad = QuadraticFunction(-1, 0, 10);
-	StringFunction strf("sin(-3x)");
-	IntegralApproximation approx = IntegralApproximation(0, 5, &strf);
+	StringFunction strf("sin(5x) * x + 5");
+	IntegralApproximation approx = IntegralApproximation(-5, 5, &strf);
 
-	std::cout << fixed;
-	std::cout << setprecision(5);
+	cout << fixed;
+	cout << setprecision(15);
 
-	std::cout << endl << approx.IntegrateWithTrapesoid(100) << endl;
+	cout << endl << approx.IntegrateWithTrapesoid(100) << endl;
+	cout << endl << approx.IntegrateWithTrapesoid(1000) << endl;
+	cout << endl << approx.IntegrateWithTrapesoid(10000) << endl;
+	cout << endl << approx.IntegrateWithTrapesoid(100000) << endl;
+	cout << endl << approx.IntegrateWithTrapesoid(1000000) << endl;
 
 	return 0;
 }

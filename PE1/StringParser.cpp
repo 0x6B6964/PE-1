@@ -15,17 +15,20 @@ unsigned int StringParser::FindEndOfExpression(const string& str, unsigned int s
 		
 		if (str[i] == ')') {
 			if (brackets == 0)
-				return i;
+				return i + 1;
 
 			if (brackets < 0)
-				return i - 1;
+				return i;
 		}
 			
+
+		if (brackets > 0)
+			continue;
 
 		if (!(CharUtil::IsOperation(str[i]) && str[i] != '^'))
 			continue;
 
-		if (CharUtil::IsOperation(str[i - 1]) || i == startingCharacter + brackets)
+		if (CharUtil::IsOperation(str[i - 1]) || i != startingCharacter)
 			continue;
 
 		return i - 1;
