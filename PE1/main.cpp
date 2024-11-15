@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <math.h>
 
 using namespace std;
 
@@ -17,11 +18,15 @@ int main()
 	cout << fixed;
 	cout << setprecision(15);
 
-	cout << endl << approx.IntegrateWithTrapesoid(100) << endl;
-	cout << endl << approx.IntegrateWithTrapesoid(1000) << endl;
-	cout << endl << approx.IntegrateWithTrapesoid(10000) << endl;
-	cout << endl << approx.IntegrateWithTrapesoid(100000) << endl;
-	cout << endl << approx.IntegrateWithTrapesoid(1000000) << endl;
+	cout << approx.IntegrateWithLeftRectangles(100000) << endl;
+	cout << approx.IntegrateWithMidpointRectangles(100000) << endl;
+	cout << approx.IntegrateWithRightRectangles(100000) << endl;
+	cout << endl;
+	cout << approx.IntegrateWithAllRectangles(100000) << endl;
+	cout << endl;
+	cout << approx.IntegrateWithTrapesoid(100000) << endl;
+	cout << endl;
+	cout << approx.IntegrateWithParabole(100000) << endl;
 
 	return 0;
 }
