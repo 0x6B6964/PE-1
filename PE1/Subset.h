@@ -19,7 +19,7 @@ public:
 			_end = _start;
 	}
 
-	inline unsigned int GetStart() { return _start; }
-	inline unsigned int GetEnd() { return _end; }
+	inline size_t GetStart() { return _start; }
+	inline size_t GetEnd() { return _end; }
 };
 
