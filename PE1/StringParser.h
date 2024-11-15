@@ -8,18 +8,18 @@ class StringParser
 {
 private:
 	string _str;
-	unsigned int _length;
 
 	StringParser() { }
 
 public:
 	StringParser(string str) {
 		_str = str;
-		_length = str.length();
 	}
 
+	char operator [](size_t idx) const { return _str[idx]; }
+
 	inline string GetString() { return _str; }
-	inline size_t GetLength() { return _length; }
+	inline size_t length() { return _str.length(); }
 
 #pragma region Expession boundaries
 

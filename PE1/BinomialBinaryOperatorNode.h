@@ -12,7 +12,7 @@ public:
 		_operand1 = CreateNode(str, set1);
 		_operand2 = CreateNode(str, set2);
 
-		switch (str.GetString()[set1.GetEnd()]) {
+		switch (str[set1.GetEnd()]) {
 			case '+':
 				_operationType = 0;
 				break;

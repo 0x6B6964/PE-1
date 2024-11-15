@@ -17,5 +17,5 @@ public:
 	}
 	virtual double Extract(const double& x);
 
-	static inline BinomialNode* CreateSource(StringParser str) { return CreateNode(str, { 0, str.GetLength() }); }
+	static inline BinomialNode* CreateSource(StringParser str) { return CreateNode(str, { 0, str.length() }); }
 };

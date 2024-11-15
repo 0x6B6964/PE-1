@@ -12,7 +12,7 @@ private:
 public:
 	BinomialXNode(StringParser& str, Subset set) : BinomialNode(str, { 0, 0 })
 	{
-		switch (str.GetString()[set.GetEnd() - 1]) {
+		switch (str[set.GetEnd() - 1]) {
 			case 'x':
 				_type = 0;
 				break;
