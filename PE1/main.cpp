@@ -9,11 +9,18 @@
 
 using namespace std;
 
+void Approximate();
+
 int main()
 {
-	QuadraticFunction quad = QuadraticFunction(-1, 0, 10);
-	StringFunction strf("sin(5x) * x + 5");
-	IntegralApproximation approx = IntegralApproximation(-5, 5, &strf);
+	Approximate();
+
+	return 0;
+}
+
+void Approximate()
+{
+	IntegralApproximation approx = IntegralApproximation(-5, 5, new StringFunction("sin(5x) * x + 5"));
 
 	cout << fixed;
 	cout << setprecision(15);
@@ -27,6 +34,4 @@ int main()
 	cout << approx.IntegrateWithTrapesoid(100000) << endl;
 	cout << endl;
 	cout << approx.IntegrateWithParabole(100000) << endl;
-
-	return 0;
 }
