@@ -34,6 +34,11 @@ public:
 		}
 	}
 
+	~BinomialBinaryOperatorNode() {
+		delete _operand1;
+		delete _operand2;
+	}
+
 	double Extract(const double& x) override;
 };
 

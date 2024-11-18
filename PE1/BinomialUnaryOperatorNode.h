@@ -31,5 +31,9 @@ public:
 		_operand = CreateNode(str, operandSet);
 	}
 
+	~BinomialUnaryOperatorNode() {
+		delete _operand;
+	}
+
 	double Extract(const double& x) override;
 };

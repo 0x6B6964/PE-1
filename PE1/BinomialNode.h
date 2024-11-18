@@ -11,10 +11,9 @@ protected:
 	static BinomialNode* CreateNode(StringParser& str, Subset set);
 
 public:
-	BinomialNode(StringParser& str, Subset set)
-	{
-		
-	}
+	BinomialNode(StringParser& str, Subset set)	{ }
+	virtual ~BinomialNode() { }
+
 	virtual double Extract(const double& x);
 
 	static inline BinomialNode* CreateSource(StringParser str) { return CreateNode(str, { 0, str.length() }); }

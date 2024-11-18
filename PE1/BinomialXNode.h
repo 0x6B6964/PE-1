@@ -25,10 +25,10 @@ public:
 			default:
 				_type = 0;
 				break;
-		}
-
-		
+		}		
 	}
+
+	~BinomialXNode() { }
 
 	double Extract(const double& x) override;
 };

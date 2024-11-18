@@ -22,6 +22,10 @@ public:
 		_coreNode = BinomialNode::CreateSource(StringParser(selectedFunction));
 	}
 
+	~StringFunction() {
+		delete _coreNode;
+	}
+
 	double ComputeWith(double x) override;
 	std::string ToString() override;
 };

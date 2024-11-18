@@ -2,6 +2,8 @@
 #include "FunctionContainer.h"
 #include "LinearFunction.h"
 
+using namespace std;
+
 class IntegralApproximation
 {
 private:
@@ -15,6 +17,10 @@ public:
 		_b = b;
 
 		_selectedFunction = functionToCompute;
+	}
+
+	~IntegralApproximation() {
+		delete _selectedFunction;
 	}
 
 	/// <returns> Returns range of integration </returns>

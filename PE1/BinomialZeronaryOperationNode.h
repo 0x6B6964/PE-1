@@ -11,6 +11,8 @@ public:
 		_numeral = str.ParseNumberAtPosition(set);
 	}
 
+	~BinomialZeronaryOperationNode() { }
+
 	double Extract(const double& x) override;
 };
 
