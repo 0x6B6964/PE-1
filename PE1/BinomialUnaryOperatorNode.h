@@ -8,7 +8,7 @@ private:
 	BinomialNode* _operand;
 
 public:
-	BinomialUnaryOperatorNode(StringParser& str, Subset set) : BinomialNode(str, set)
+	BinomialUnaryOperatorNode(StringParser& str, Subset set) : BinomialNode()
 	{
 		Subset operandSet;
 

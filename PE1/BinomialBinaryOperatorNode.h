@@ -8,7 +8,7 @@ class BinomialBinaryOperatorNode : public BinomialNode
 	BinomialNode* _operand2;
 
 public: 
-	BinomialBinaryOperatorNode(StringParser& str, Subset set1, Subset set2) : BinomialNode(str, set1) {
+	BinomialBinaryOperatorNode(StringParser& str, Subset set1, Subset set2) : BinomialNode() {
 		_operand1 = CreateNode(str, set1);
 		_operand2 = CreateNode(str, set2);
 

@@ -49,6 +49,8 @@ public:
 
 	static int IsWordedFunction(const string& str, size_t startingCharacter = 0); // returns length of the word
 	inline int IsWordedFunction(size_t wordStart = 0) { return IsWordedFunction(_str, wordStart); }
+	static int IsWordedFunctionFromEnd(const string& str, size_t endingCharacter);
+	inline int IsWordedFunctionFromEnd(size_t endingCharacter) { return IsWordedFunctionFromEnd(_str, endingCharacter); }
 
 #pragma endregion
 

@@ -23,6 +23,9 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 			if (i == set.GetStart()) // In case of unary + or - at the beginning
 				continue;
 
+			if (str.IsWordedFunctionFromEnd(i))
+				continue;
+
 			if (!CharUtil::IsOperation(str[i - 1])) {  // Only binary + an -
 				return new BinomialBinaryOperatorNode(str, { set.GetStart(), i }, { i + 1, set.GetEnd() });
 			}
@@ -113,11 +116,11 @@ BinomialNode* BinomialNode::CreateNode(StringParser& str, Subset set)
 	}
 
 	// Extracting the brackets
-	if (str[set.GetStart()]) { // Except for brackets, but they are rigth here, so not to worry
+	if (str[set.GetStart()] == '(') { // Except for brackets, but they are rigth here, so not to worry
 		return new BinomialUnaryOperatorNode(str, { set.GetStart(), str.FindEndOfExpression(set.GetStart()) });
 	}
 
-	return new BinomialZeronaryOperationNode(str, { 1, 1 });
+	return new BinomialZeronaryOperationNode();
 }
 
 double BinomialNode::Extract(const double& x)

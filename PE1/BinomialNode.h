@@ -11,7 +11,7 @@ protected:
 	static BinomialNode* CreateNode(StringParser& str, Subset set);
 
 public:
-	BinomialNode(StringParser& str, Subset set)	{ }
+	BinomialNode()	{ }
 	virtual ~BinomialNode() { }
 
 	virtual double Extract(const double& x);

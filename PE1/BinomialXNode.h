@@ -10,7 +10,7 @@ private:
 	int _type; // 0 - x; 1 - pi; 2 - e; 3 - error, so 1
 
 public:
-	BinomialXNode(StringParser& str, Subset set) : BinomialNode(str, { 0, 0 })
+	BinomialXNode(StringParser& str, Subset set) : BinomialNode()
 	{
 		switch (str[set.GetEnd() - 1]) {
 			case 'x':

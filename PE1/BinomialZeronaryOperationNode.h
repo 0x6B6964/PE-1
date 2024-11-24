@@ -7,7 +7,11 @@ private:
 	double _numeral;
 
 public:
-	BinomialZeronaryOperationNode(StringParser& str, Subset set) : BinomialNode(str, set) {
+	BinomialZeronaryOperationNode() {
+		_numeral = 0;
+	}
+
+	BinomialZeronaryOperationNode(StringParser& str, Subset set) : BinomialNode() {
 		_numeral = str.ParseNumberAtPosition(set);
 	}
 

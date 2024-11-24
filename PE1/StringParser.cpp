@@ -28,10 +28,10 @@ size_t StringParser::FindEndOfExpression(const string& str, size_t startingChara
 		if (!(CharUtil::IsOperation(str[i]) && str[i] != '^'))
 			continue;
 
-		if (CharUtil::IsOperation(str[i - 1]) || i != startingCharacter)
+		if (CharUtil::IsOperation(str[i - 1]) || i == startingCharacter)
 			continue;
 
-		return i - 1;
+		return i;
 	}
 	
 	return str.length() - 1;
@@ -94,6 +94,19 @@ int StringParser::IsWordedFunction(const string& str, size_t startingCharacter)
 		
 		if (ParseWord(substring))
 			return i - startingCharacter;
+	}
+
+	return 0;
+}
+
+int StringParser::IsWordedFunctionFromEnd(const string& str, size_t endingCharacter)
+{
+	for (unsigned int i = 0; i < endingCharacter; i++)
+	{
+		string substring = str.substr(i, endingCharacter);
+
+		if (ParseWord(substring))
+			return endingCharacter - i;
 	}
 
 	return 0;
