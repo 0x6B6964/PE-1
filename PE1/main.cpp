@@ -20,7 +20,7 @@ int main()
 
 void Approximate()
 {
-	IntegralApproximation approx = IntegralApproximation(-5, 5, new StringFunction("sin(5x) * x + 5"));
+	IntegralApproximation approx = IntegralApproximation(-5, 5, new StringFunction("sin-5x * x + 5"));
 
 	cout << fixed;
 	cout << setprecision(15);

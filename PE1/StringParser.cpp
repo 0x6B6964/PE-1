@@ -40,7 +40,7 @@ size_t StringParser::FindEndOfExpression(const string& str, size_t startingChara
 Subset StringParser::FindFirstWordPosition(const string& str, size_t startingCharacter)
 {
 	size_t length = str.length();
-	int startOfTheWord = startingCharacter;
+	size_t startOfTheWord = startingCharacter;
 
 	for (startOfTheWord; startingCharacter < length; startOfTheWord++) {
 		if (CharUtil::IsLetter(str[startOfTheWord]))
@@ -58,29 +58,27 @@ Subset StringParser::FindFirstWordPosition(const string& str, size_t startingCha
 	return Subset(startOfTheWord, endOfTheWord - 1);
 }
 
-int StringParser::ParseWord(const string& str, Subset set)
+int StringParser::ParseWord(const string& str)
 {
-	string sub = str.substr(set.GetStart(), set.GetEnd() - set.GetStart());
-
-	if (sub == "sqrt")
+	if (str == "sqrt")
 		return 1;
-	if (sub == "sin")
+	if (str == "sin")
 		return 2;
-	if (sub == "sec")
+	if (str == "sec")
 		return 3;
-	if (sub == "cos")
+	if (str == "cos")
 		return 4;
-	if (sub == "csc")
+	if (str == "csc")
 		return 5;
-	if (sub == "tg")
+	if (str == "tg")
 		return 6;
-	if (sub == "tan")
+	if (str == "tan")
+		return 6;
+	if (str == "ctg")
 		return 7;
-	if (sub == "ctg")
-		return 7;
-	if (sub == "lg")
+	if (str == "lg")
 		return 8;
-	if (sub == "ln")
+	if (str == "ln")
 		return 9;
 
 	return 0;
@@ -88,7 +86,9 @@ int StringParser::ParseWord(const string& str, Subset set)
 
 int StringParser::IsWordedFunction(const string& str, size_t startingCharacter)
 {
-	for (unsigned int i = startingCharacter; i < str.length(); i++)
+	unsigned int endingCharacter = startingCharacter + 4 < str.length() ? startingCharacter + 4 : str.length(); // Clamp // 4 being legth of longest worded function
+
+	for (unsigned int i = startingCharacter; i < endingCharacter; i++)
 	{
 		string substring = str.substr(startingCharacter, i - startingCharacter);
 		
@@ -101,9 +101,11 @@ int StringParser::IsWordedFunction(const string& str, size_t startingCharacter)
 
 int StringParser::IsWordedFunctionFromEnd(const string& str, size_t endingCharacter)
 {
-	for (unsigned int i = 0; i < endingCharacter; i++)
+	unsigned int startingCharacter = endingCharacter > 4 ? endingCharacter - 4 : 0; // Clamp // 4 being legth of longest worded function
+
+	for (unsigned int i = startingCharacter; i < endingCharacter; i++) 
 	{
-		string substring = str.substr(i, endingCharacter);
+		string substring = str.substr(i, endingCharacter - i);
 
 		if (ParseWord(substring))
 			return endingCharacter - i;

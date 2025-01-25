@@ -43,8 +43,9 @@ public:
 	inline string FindFirstWord(size_t startingCharacter = 0) { return FindFirstWord(_str, startingCharacter); }
 
 
-	static int ParseWord(const string& str, Subset set);
-	static inline int ParseWord(const string& str) { return ParseWord(str, Subset(0, str.length())); }
+	static int ParseWord(const string& str);
+	inline int ParseWord() { return ParseWord(_str); }
+	static inline int ParseWord(const string& str, Subset set) { return ParseWord(str.substr(set.GetStart(), set.GetEnd() - set.GetStart())); }
 	inline int ParseWord(Subset set) { return ParseWord(_str, set); }
 
 	static int IsWordedFunction(const string& str, size_t startingCharacter = 0); // returns length of the word
